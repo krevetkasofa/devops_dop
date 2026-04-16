@@ -1,0 +1,5 @@
+### Демо-приложение emojivoto
+
+Приложение emojivoto было установлено из официального репозитория Linkerd:
+
+kubectl apply -f https://run.linkerd.io/emojivoto.yml -n emojivoto 

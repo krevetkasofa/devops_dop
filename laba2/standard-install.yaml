@@ -1,0 +1,5 @@
+### Gateway API CRD
+
+Манифест с CRD для Gateway API был скачан из официального GitHub-репозитория и установлен командой:
+
+kubectl apply --server-side -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.5.0/standard-install.yaml   
