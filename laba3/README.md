@@ -52,7 +52,7 @@ minio-saas/
 -  Сеть minio_network (создаёт виртуальную сеть)
 -  Том minio_data (сохраняет данные на диске хоста, при перезапуске он восстанавливаются)
 
-Полный код файла можно найти [тут](laba3/Артефакты выполнения/docker/docker-compose.yml)
+Полный код файла можно найти [тут]((https://github.com/krevetkasofa/devops_dop/tree/main/laba3/Артефакты%20выполнения/docker))
 
 ### Шаг 4:  Запуск MinIO
 
