@@ -52,7 +52,7 @@ minio-saas/
 -  Сеть minio_network (создаёт виртуальную сеть)
 -  Том minio_data (сохраняет данные на диске хоста, при перезапуске он восстанавливаются)
 
-Полный код файла можно найти [тут]((https://github.com/krevetkasofa/devops_dop/tree/main/laba3/Артефакты%20выполнения/docker))
+Полный код файла можно найти [тут](https://github.com/krevetkasofa/devops_dop/tree/main/laba3/Артефакты%20выполнения/docker)
 
 ### Шаг 4:  Запуск MinIO
 
@@ -98,7 +98,7 @@ pip install flask minio
 
 pip freeze > requirements.txt
 ```
-Содержимое файла requirements.txt можно найти тут 
+Содержимое файла requirements.txt можно найти [тут](https://github.com/krevetkasofa/devops_dop/blob/main/laba3/Артефакты%20выполнения/app/requirements.txt)
 
 ### Шаг 6: Разработка REST API
 
@@ -115,11 +115,11 @@ pip freeze > requirements.txt
 - Реализуем эндпоинт  ```GET /health```, который проверяет, что приложение может подключиться к MinIO
 - Запускаем приложение ```app.run(host='0.0.0.0', port=5000, debug=True)```, где ``` host='0.0.0.0' ``` — принимать запросы извне контейнера; ``` port=5000 — слушать порт 5000 ```; ```debug=True``` — показывать подробные ошибки при разработке
 
-Полный код файла ``` app.py ``` можно найти тут
+Полный код файла ``` app.py ``` можно найти [тут](https://github.com/krevetkasofa/devops_dop/blob/main/laba3/Артефакты%20выполнения/app/app.py)
 
 ### Шаг 7:  Создание Dockerfile для приложения
 
-Создаем ``` ~/minio-saas/app/Dockerfile ```, который  описывает, как собрать образ нашего Flask-приложения
+Создаем [``` ~/minio-saas/app/Dockerfile ```](https://github.com/krevetkasofa/devops_dop/blob/main/laba3/Артефакты%20выполнения/app/Dockerfile), который  описывает, как собрать образ нашего Flask-приложения
 
 ```
 FROM python:3.12-slim
