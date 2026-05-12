@@ -1,0 +1,55 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: bad-ci-cd-pipeline
+spec:
+  template:
+    spec:
+      containers:
+      - name: ci-runner
+        image: alpine/k8s:latest
+        env:
+        - name: DOCKER_PASSWORD
+          value: "mySuperSecretPassword123!"
+        - name: DB_PASSWORD
+          value: "production_db_secret"
+        command: ["/bin/sh"]
+        args:
+        - -c |
+          # 1. Сборка с latest тегом
+          echo "Building application..."
+          docker build -t myapp:latest ./application
+          
+          # 2. Логин с паролем в открытом виде
+          docker login -u myuser -p $DOCKER_PASSWORD myregistry.com
+          
+          # 3. Пуш образа с latest тегом
+          docker push myregistry.com/myapp:latest
+          
+          # 4. Немедленное развертывание в production
+          echo "Deploying to production..."
+          kubectl apply -f ./k8s-manifests/
+          
+          # 5. Принудительный рестарт
+          kubectl rollout restart deployment/myapp -n production
+          
+          # 6. Слип вместо проверки готовности
+          sleep 30
+          
+          # 7. Развертывание тестовой БД в production
+          kubectl apply -f - <<EOF
+          apiVersion: v1
+          kind: Secret
+          metadata:
+            name: db-secret
+            namespace: production
+          data:
+            password: $(echo -n "$DB_PASSWORD" | base64)
+          EOF
+          
+          # 8. Отправка уведомления с токеном в URL
+          curl -X POST https://api.telegram.org/bot123456:ABC-DEF1234/sendMessage \
+               -d "chat_id=-123456&text=Deployed to PROD directly from CI"
+               
+          echo "CI/CD completed!"
+      restartPolicy: Never

@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fixed-ci-cd-test
+  namespace: ci-cd
+spec:
+  template:
+    spec:
+      serviceAccountName: ci-cd-service-account
+      containers:
+      - name: ci-runner
+        image: alpine/k8s:latest  # Этот образ имеет /bin/sh
+        command: ["/bin/sh"]
+        args:
+        - -c
+        - |
+          set -e
+          echo "🚀 Starting CI/CD pipeline"
+          echo "=========================="
+          
+          # Тестируем базовые команды
+          echo "1. Testing environment..."
+          hostname
+          pwd
+          ls -la
+          
+          echo "2. Testing kubectl..."
+          kubectl version --client
+          
+          echo "3. Testing Kubernetes access..."
+          kubectl get nodes
+          
+          echo "4. Testing permissions..."
+          kubectl auth can-i get pods --namespace=ci-cd
+          
+          echo "=========================="
+          echo "✅ CI/CD Test COMPLETED SUCCESSFULLY!"
+      restartPolicy: Never
