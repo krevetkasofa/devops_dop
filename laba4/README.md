@@ -166,7 +166,9 @@ This proves CI/CD pipeline would work
 Механизм описан в файле ```vault-final-ci.yaml``` :
 
 <img width="1126" height="405" alt="image" src="https://github.com/user-attachments/assets/b3df749e-4bbf-436b-ab0b-dded357603d0" />
-Все содержимое файла можно увидеть тут[]
+Все содержимое файла можно увидеть [тут](https://github.com/krevetkasofa/devops_dop/blob/main/laba4/vault-final-ci.yaml)
+
+[тут](https://github.com/krevetkasofa/devops_dop/tree/main/laba3/Артефакты%20выполнения/docker)
 
 ### Рузультат тестирования: 
 
