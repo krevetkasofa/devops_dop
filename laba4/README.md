@@ -168,8 +168,6 @@ This proves CI/CD pipeline would work
 <img width="1126" height="405" alt="image" src="https://github.com/user-attachments/assets/b3df749e-4bbf-436b-ab0b-dded357603d0" />
 Все содержимое файла можно увидеть [тут](https://github.com/krevetkasofa/devops_dop/blob/main/laba4/vault-final-ci.yaml)
 
-[тут](https://github.com/krevetkasofa/devops_dop/tree/main/laba3/Артефакты%20выполнения/docker)
-
 ### Рузультат тестирования: 
 
 <img width="1429" height="120" alt="image" src="https://github.com/user-attachments/assets/f191b291-7288-4aa8-8248-01deb798a59d" />
